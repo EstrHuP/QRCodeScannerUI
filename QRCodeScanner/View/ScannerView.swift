@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ScannerView: View {
-    /// Properties
+    // MARK: - Properties
     @State private var isScanning: Bool = false
+    @State private var session: AVCaptureSession = .init()
+    @State private var cameraPermission: CameraPermission = .idle
+    /// QR Scanner AV Output
+    @State private var qrOutput: AVCaptureMetadataOutput = .init()
+    /// Error
+    @State private var errorMessage: String = ""
+    @State private var isShowError: Bool = false
+    /// Navigate inside app
+    @Environment(\.openURL) private var openURL
     
     var body: some View {
         VStack(spacing: 8) {
@@ -39,6 +49,7 @@ struct ScannerView: View {
                 let size = $0.size
                 
                 ZStack {
+                    CameraView(frameSize: size, session: $session)
                     ForEach(0...4, id: \.self) { index in
                         let rotation = Double(index) * 90
                         
@@ -86,7 +97,21 @@ struct ScannerView: View {
             
             Spacer(minLength: 15)
         }
+        .onAppear(perform: checkCameraPermission )
         .padding(15)
+        .alert(errorMessage, isPresented: $isShowError) {
+            if cameraPermission == .denied {
+                Button("Settings") {
+                    let settingsString = UIApplication.openSettingsURLString
+                    if let settingsURL = URL(string: settingsString) {
+                        openURL(settingsURL)
+                    }
+                }
+                Button("Cancel", role: .cancel) {
+                    
+                }
+            }
+        }
     }
     
     // MARK: - Activating Scanner Animation Method
@@ -96,6 +121,68 @@ struct ScannerView: View {
             .repeatForever(autoreverses: true)) {
                 isScanning = true
             }
+    }
+    
+    // MARK: - Check camera permission
+    func checkCameraPermission() {
+        Task {
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .authorized: 
+                cameraPermission = .approved
+                setupCamera()
+            case .notDetermined:
+                if await AVCaptureDevice.requestAccess(for: .video) {
+                    cameraPermission = .approved
+                    setupCamera()
+                }  else {
+                    cameraPermission = .denied
+                    presentError("Please provide access to camera for scanning codes")
+                }
+            case .denied, .restricted: 
+                cameraPermission = .denied
+                presentError("Please provide access to camera for scanning codes")
+            default: break
+            }
+        }
+    }
+    
+    // MARK: - Set up camera
+    func setupCamera() {
+        do {
+            // finding back camera
+            guard let device = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInUltraWideCamera],
+                                                                mediaType: .video,
+                                                                position: .back).devices.first 
+            else {
+                presentError("Unkown error")
+                return
+            }
+            // camera input
+            let input = try AVCaptureDeviceInput(device: device)
+            // checking wheter input and output can be added to the session
+            guard session.canAddInput(input), session.canAddOutput(qrOutput) else {
+                presentError("Unkown error")
+                return
+            }
+            
+            // adding input and output to camera session
+            session.beginConfiguration()
+            session.addInput(input)
+            session.addOutput(qrOutput)
+            // setting output configuration to read QR codes
+            qrOutput.metadataObjectTypes = [.qr, .microQR]
+            // adding delegate to retreive the fetched QR code from camera
+            
+            
+        } catch {
+            presentError(error.localizedDescription)
+        }
+    }
+    
+    // MARK: - Presenting error
+    func presentError(_ message: String) {
+        errorMessage = message
+        isShowError.toggle()
     }
 }
 
