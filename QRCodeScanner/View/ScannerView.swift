@@ -27,7 +27,8 @@ struct ScannerView: View {
     var body: some View {
         VStack(spacing: 8) {
             Button {
-                
+                // MARK: - Reactivate camera or close the app
+                reactivateCamera()
             } label: {
                 Image(systemName: "xmark")
                     .font(.title3)
@@ -38,7 +39,7 @@ struct ScannerView: View {
             
             Text("Place the QR code inside the area")
                 .font(.title3)
-                .foregroundColor(.black.opacity(0.8))
+                .foregroundColor(.gray.opacity(0.8))
                 .padding(.top, 20)
             
             Text("Scanning will start automatically")
@@ -92,6 +93,7 @@ struct ScannerView: View {
             }
             .padding(.horizontal, 45)
             
+            Text(scannedCode)
             
             Spacer(minLength: 15)
             Button {
@@ -191,7 +193,8 @@ struct ScannerView: View {
     func setupCamera() {
         do {
             // finding back camera
-            guard let device = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInUltraWideCamera],
+            guard let device = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera,
+                                                                              .builtInUltraWideCamera],
                                                                 mediaType: .video,
                                                                 position: .back).devices.first 
             else {
@@ -211,7 +214,7 @@ struct ScannerView: View {
             session.addInput(input)
             session.addOutput(qrOutput)
             // setting output configuration to read QR codes
-            qrOutput.metadataObjectTypes = [.qr, .microQR]
+            qrOutput.metadataObjectTypes = [.qr, .microQR, .ean13]
             // adding delegate to retreive the fetched QR code from camera
             qrOutput.setMetadataObjectsDelegate(qrDelegate,
                                                 queue: .main)
