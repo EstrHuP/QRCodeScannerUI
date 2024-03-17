@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C780F2452BA742B9004EF062 /* QRCodeScanner_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2442BA742B9004EF062 /* QRCodeScanner_iOSApp.swift */; };
+		C780F2452BA742B9004EF062 /* QRCodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2442BA742B9004EF062 /* QRCodeScannerApp.swift */; };
 		C780F2472BA742B9004EF062 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2462BA742B9004EF062 /* ContentView.swift */; };
 		C780F2492BA742BC004EF062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C780F2482BA742BC004EF062 /* Assets.xcassets */; };
 		C780F24C2BA742BC004EF062 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C780F24B2BA742BC004EF062 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C780F2412BA742B9004EF062 /* QRCodeScanner-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QRCodeScanner-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C780F2442BA742B9004EF062 /* QRCodeScanner_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScanner_iOSApp.swift; sourceTree = "<group>"; };
+		C780F2412BA742B9004EF062 /* QRCodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C780F2442BA742B9004EF062 /* QRCodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerApp.swift; sourceTree = "<group>"; };
 		C780F2462BA742B9004EF062 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C780F2482BA742BC004EF062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C780F24B2BA742BC004EF062 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -35,7 +35,7 @@
 		C780F2382BA742B9004EF062 = {
 			isa = PBXGroup;
 			children = (
-				C780F2432BA742B9004EF062 /* QRCodeScanner-iOS */,
+				C780F2432BA742B9004EF062 /* QRCodeScanner */,
 				C780F2422BA742B9004EF062 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +43,20 @@
 		C780F2422BA742B9004EF062 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C780F2412BA742B9004EF062 /* QRCodeScanner-iOS.app */,
+				C780F2412BA742B9004EF062 /* QRCodeScanner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C780F2432BA742B9004EF062 /* QRCodeScanner-iOS */ = {
+		C780F2432BA742B9004EF062 /* QRCodeScanner */ = {
 			isa = PBXGroup;
 			children = (
-				C780F2442BA742B9004EF062 /* QRCodeScanner_iOSApp.swift */,
+				C780F2442BA742B9004EF062 /* QRCodeScannerApp.swift */,
 				C780F2462BA742B9004EF062 /* ContentView.swift */,
 				C780F2482BA742BC004EF062 /* Assets.xcassets */,
 				C780F24A2BA742BC004EF062 /* Preview Content */,
 			);
-			path = "QRCodeScanner-iOS";
+			path = QRCodeScanner;
 			sourceTree = "<group>";
 		};
 		C780F24A2BA742BC004EF062 /* Preview Content */ = {
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C780F2402BA742B9004EF062 /* QRCodeScanner-iOS */ = {
+		C780F2402BA742B9004EF062 /* QRCodeScanner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C780F24F2BA742BC004EF062 /* Build configuration list for PBXNativeTarget "QRCodeScanner-iOS" */;
+			buildConfigurationList = C780F24F2BA742BC004EF062 /* Build configuration list for PBXNativeTarget "QRCodeScanner" */;
 			buildPhases = (
 				C780F23D2BA742B9004EF062 /* Sources */,
 				C780F23E2BA742B9004EF062 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "QRCodeScanner-iOS";
+			name = QRCodeScanner;
 			productName = "QRCodeScanner-iOS";
-			productReference = C780F2412BA742B9004EF062 /* QRCodeScanner-iOS.app */;
+			productReference = C780F2412BA742B9004EF062 /* QRCodeScanner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C780F23C2BA742B9004EF062 /* Build configuration list for PBXProject "QRCodeScanner-iOS" */;
+			buildConfigurationList = C780F23C2BA742B9004EF062 /* Build configuration list for PBXProject "QRCodeScanner" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C780F2402BA742B9004EF062 /* QRCodeScanner-iOS */,
+				C780F2402BA742B9004EF062 /* QRCodeScanner */,
 			);
 		};
 /* End PBXProject section */
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C780F2472BA742B9004EF062 /* ContentView.swift in Sources */,
-				C780F2452BA742B9004EF062 /* QRCodeScanner_iOSApp.swift in Sources */,
+				C780F2452BA742B9004EF062 /* QRCodeScannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +271,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QRCodeScanner-iOS/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"QRCodeScanner/Preview Content\"";
 				DEVELOPMENT_TEAM = 998HSZS578;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -301,7 +301,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"QRCodeScanner-iOS/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"QRCodeScanner/Preview Content\"";
 				DEVELOPMENT_TEAM = 998HSZS578;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -327,7 +327,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C780F23C2BA742B9004EF062 /* Build configuration list for PBXProject "QRCodeScanner-iOS" */ = {
+		C780F23C2BA742B9004EF062 /* Build configuration list for PBXProject "QRCodeScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C780F24D2BA742BC004EF062 /* Debug */,
@@ -336,7 +336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C780F24F2BA742BC004EF062 /* Build configuration list for PBXNativeTarget "QRCodeScanner-iOS" */ = {
+		C780F24F2BA742BC004EF062 /* Build configuration list for PBXNativeTarget "QRCodeScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C780F2502BA742BC004EF062 /* Debug */,
