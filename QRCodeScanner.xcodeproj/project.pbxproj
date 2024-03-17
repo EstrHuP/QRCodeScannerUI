@@ -11,6 +11,7 @@
 		C780F2472BA742B9004EF062 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2462BA742B9004EF062 /* ContentView.swift */; };
 		C780F2492BA742BC004EF062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C780F2482BA742BC004EF062 /* Assets.xcassets */; };
 		C780F24C2BA742BC004EF062 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C780F24B2BA742BC004EF062 /* Preview Assets.xcassets */; };
+		C780F2542BA74FF7004EF062 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2532BA74FF7004EF062 /* ScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		C780F2462BA742B9004EF062 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C780F2482BA742BC004EF062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C780F24B2BA742BC004EF062 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C780F2532BA74FF7004EF062 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		C780F2432BA742B9004EF062 /* QRCodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				C780F2522BA74FE9004EF062 /* View */,
 				C780F2442BA742B9004EF062 /* QRCodeScannerApp.swift */,
 				C780F2462BA742B9004EF062 /* ContentView.swift */,
 				C780F2482BA742BC004EF062 /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				C780F24B2BA742BC004EF062 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C780F2522BA74FE9004EF062 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C780F2532BA74FF7004EF062 /* ScannerView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C780F2542BA74FF7004EF062 /* ScannerView.swift in Sources */,
 				C780F2472BA742B9004EF062 /* ContentView.swift in Sources */,
 				C780F2452BA742B9004EF062 /* QRCodeScannerApp.swift in Sources */,
 			);
