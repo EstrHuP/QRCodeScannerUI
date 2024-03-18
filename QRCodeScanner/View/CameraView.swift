@@ -9,14 +9,13 @@ import SwiftUI
 import AVKit
 
 struct CameraView: UIViewRepresentable {
-    /// Properties
+    // Properties
     var frameSize: CGSize
     
-    /// Camera session
+    // Camera session
     @Binding var session: AVCaptureSession
     
     func makeUIView(context: Context) -> UIView {
-        /// Defining camera frame size
         let view = UIViewType(frame: CGRect(origin: .zero, size: frameSize))
         view.backgroundColor = .clear
         
