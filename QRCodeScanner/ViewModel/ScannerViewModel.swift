@@ -21,31 +21,39 @@ class ScannerViewModel: ObservableObject {
     var qrDelegate = QRScannerDelegate()
     var cameraPermission: CameraPermission = .idle
     
+    let deviceTypes: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera, .builtInUltraWideCamera]
+    let metadataTypes: [AVMetadataObject.ObjectType] = [.dataMatrix]
+    
     private var cancellables = Set<AnyCancellable>()
     
-    static let deviceTypes: [AVCaptureDevice.DeviceType] = [.builtInWideAngleCamera, .builtInUltraWideCamera]
-    static let metadataTypes: [AVMetadataObject.ObjectType] = [.qr, .microQR, .ean13]
-    
     init() {
-        qrDelegate.objectWillChange.sink { [weak self] _ in
-            self?.handleQRCodeReaded()
-        }.store(in: &cancellables)
+        qrDelegate.objectWillChange
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                self?.handleQRCodeReaded()
+            }.store(in: &cancellables)
+    }
+    
+    deinit {
+        cancellables.forEach { $0.cancel() }
     }
     
     // MARK: - Animation Methods
     func startScannerAnimation() {
-        DispatchQueue.main.async {
-            withAnimation(.easeInOut(duration: 0.85)
-                .delay(0.1)
-                .repeatForever(autoreverses: true)) {
-                    self.isScanning = true
-                }
-        }
+        withAnimation(.easeInOut(duration: 0.85)
+            .delay(0.1)
+            .repeatForever(autoreverses: true)) {
+                self.isScanning = true
+            }
     }
     
     func stopScannerAnimation() {
         withAnimation(.easeInOut(duration: 0.85)) {
-            self.isScanning = false
+            DispatchQueue.main.async {
+                self.session.stopRunning()
+            }
+            isScanning = false
+            scannedCode = qrDelegate.codeValue ?? ""
         }
     }
     
@@ -54,8 +62,10 @@ class ScannerViewModel: ObservableObject {
         DispatchQueue.global(qos: .background).async {
             self.session.startRunning()
         }
+        self.startScannerAnimation()
+        self.scannedCode = ""
     }
-    
+        
     // MARK: - Check camera permission
     func checkCameraPermission() {
         Task {
@@ -69,7 +79,8 @@ class ScannerViewModel: ObservableObject {
     }
     
     // MARK: - Set up camera
-    func setupCamera(deviceTypes: [AVCaptureDevice.DeviceType], metadataTypes: [AVMetadataObject.ObjectType]) {
+    func setupCamera(deviceTypes: [AVCaptureDevice.DeviceType],
+                     metadataTypes: [AVMetadataObject.ObjectType]) {
         do {
             /// finding back camera
             guard let device = AVCaptureDevice.DiscoverySession(deviceTypes: deviceTypes,
@@ -116,31 +127,24 @@ class ScannerViewModel: ObservableObject {
     // MARK: - Code Readed
     /// Reset values if the code is readed
     func handleQRCodeReaded() {
-        if let codeReaded = qrDelegate.scannedCode {
-            DispatchQueue.main.async {
-                self.scannedCode = codeReaded
-                self.stopScannerAnimation()
-                self.session.stopRunning()
-                self.qrDelegate.scannedCode = nil
-            }
-        }
+        self.stopScannerAnimation()
     }
     
     // MARK: - Presenting error
     func presentError(_ message: String) {
-        DispatchQueue.main.async {
-            self.errorMessage = message
-            self.isShowError.toggle()
-        }
+        errorMessage = message
+        isShowError.toggle()
     }
     
     private func handleAuthorizedPermission() {
         cameraPermission = .approved
-        if session.inputs.isEmpty {
-            setupCamera(deviceTypes: ScannerViewModel.deviceTypes, 
-                        metadataTypes: ScannerViewModel.metadataTypes)
-        } else {
-            session.startRunning()
+        DispatchQueue.main.async {
+            if self.session.inputs.isEmpty {
+                self.setupCamera(deviceTypes: self.deviceTypes,
+                                 metadataTypes: self.metadataTypes)
+            } else {
+                self.session.startRunning()
+            }
         }
     }
     

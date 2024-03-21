@@ -10,7 +10,7 @@ import AVKit
 
 class QRScannerDelegate: NSObject, ObservableObject, AVCaptureMetadataOutputObjectsDelegate {
     
-    @Published var scannedCode: String?
+    @Published var codeValue: String?
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
@@ -18,7 +18,7 @@ class QRScannerDelegate: NSObject, ObservableObject, AVCaptureMetadataOutputObje
             guard let readableObject = metaObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let codeReaded = readableObject.stringValue else { return }
             print(codeReaded)
-            scannedCode = codeReaded
+            codeValue = codeReaded
         }
     }
 }

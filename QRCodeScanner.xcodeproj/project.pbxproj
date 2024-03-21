@@ -15,6 +15,9 @@
 		C780F2562BA75640004EF062 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2552BA75640004EF062 /* CameraView.swift */; };
 		C780F2592BA7599E004EF062 /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2582BA7599E004EF062 /* CameraPermission.swift */; };
 		C780F25C2BA75F14004EF062 /* QRScannerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F25B2BA75F14004EF062 /* QRScannerDelegate.swift */; };
+		C7ED00EA2BA9EA3300A8D3F3 /* RestartScannerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ED00E92BA9EA3300A8D3F3 /* RestartScannerButtonView.swift */; };
+		C7ED00EC2BACE6E100A8D3F3 /* CloseScannerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ED00EB2BACE6E100A8D3F3 /* CloseScannerButtonView.swift */; };
+		C7ED00EE2BACE8E100A8D3F3 /* ImageCameraResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ED00ED2BACE8E100A8D3F3 /* ImageCameraResultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		C780F2582BA7599E004EF062 /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
 		C780F25A2BA75B4A004EF062 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C780F25B2BA75F14004EF062 /* QRScannerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerDelegate.swift; sourceTree = "<group>"; };
+		C7ED00E92BA9EA3300A8D3F3 /* RestartScannerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartScannerButtonView.swift; sourceTree = "<group>"; };
+		C7ED00EB2BACE6E100A8D3F3 /* CloseScannerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseScannerButtonView.swift; sourceTree = "<group>"; };
+		C7ED00ED2BACE8E100A8D3F3 /* ImageCameraResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCameraResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				C780F25A2BA75B4A004EF062 /* Info.plist */,
+				C7ED00EF2BACE99500A8D3F3 /* Helper */,
 				C780F2572BA75995004EF062 /* Model */,
 				C7521FB02BA835EA00FBB5B8 /* ViewModel */,
 				C780F2522BA74FE9004EF062 /* View */,
@@ -90,6 +97,7 @@
 		C780F2522BA74FE9004EF062 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7ED00E82BA9EA1C00A8D3F3 /* Subview */,
 				C780F2532BA74FF7004EF062 /* ScannerView.swift */,
 				C780F2552BA75640004EF062 /* CameraView.swift */,
 			);
@@ -100,9 +108,26 @@
 			isa = PBXGroup;
 			children = (
 				C780F2582BA7599E004EF062 /* CameraPermission.swift */,
-				C780F25B2BA75F14004EF062 /* QRScannerDelegate.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C7ED00E82BA9EA1C00A8D3F3 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				C7ED00E92BA9EA3300A8D3F3 /* RestartScannerButtonView.swift */,
+				C7ED00EB2BACE6E100A8D3F3 /* CloseScannerButtonView.swift */,
+				C7ED00ED2BACE8E100A8D3F3 /* ImageCameraResultView.swift */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
+		C7ED00EF2BACE99500A8D3F3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C780F25B2BA75F14004EF062 /* QRScannerDelegate.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +205,9 @@
 				C780F2592BA7599E004EF062 /* CameraPermission.swift in Sources */,
 				C780F2452BA742B9004EF062 /* QRCodeScannerApp.swift in Sources */,
 				C780F25C2BA75F14004EF062 /* QRScannerDelegate.swift in Sources */,
+				C7ED00EE2BACE8E100A8D3F3 /* ImageCameraResultView.swift in Sources */,
+				C7ED00EA2BA9EA3300A8D3F3 /* RestartScannerButtonView.swift in Sources */,
+				C7ED00EC2BACE6E100A8D3F3 /* CloseScannerButtonView.swift in Sources */,
 				C780F2562BA75640004EF062 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
