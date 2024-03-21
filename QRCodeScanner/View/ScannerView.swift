@@ -19,6 +19,7 @@ struct ScannerView: View {
     var resetScannerImg: String
     var goToSettingsText: String
     
+    // MARK: - init
     init(viewModel: ScannerViewModel,
          closeImg: String,
          explainText1: String,
@@ -34,7 +35,7 @@ struct ScannerView: View {
     }
     
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: AppConstants.Number.eight) {
             // MARK: - Left top button
             CloseScannerButtonView(viewModel: viewModel,
                                    closeImage: closeImg,
@@ -49,18 +50,19 @@ struct ScannerView: View {
             // MARK: - Scanner result
             Text(viewModel.scannedCode)
             
-            Spacer(minLength: 15)
+            Spacer(minLength: AppConstants.Number.fifteen)
             
             // MARK: - Restart scanner
             RestartScannerButtonView(viewModel: viewModel,
                                      imageName: resetScannerImg)
             
-            Spacer(minLength: 15)
+            Spacer(minLength: AppConstants.Number.fifteen)
         }
         
         /// Permissions
         .onAppear(perform: viewModel.checkCameraPermission)
-        .padding(15)
+        .padding(AppConstants.Number.fifteen)
+        
         .alert(viewModel.errorMessage, isPresented: $viewModel.isShowError) {
             if viewModel.cameraPermission == .denied {
                 Button(goToSettingsText) {

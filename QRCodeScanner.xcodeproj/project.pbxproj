@@ -18,6 +18,7 @@
 		C7ED00EA2BA9EA3300A8D3F3 /* RestartScannerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ED00E92BA9EA3300A8D3F3 /* RestartScannerButtonView.swift */; };
 		C7ED00EC2BACE6E100A8D3F3 /* CloseScannerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ED00EB2BACE6E100A8D3F3 /* CloseScannerButtonView.swift */; };
 		C7ED00EE2BACE8E100A8D3F3 /* ImageCameraResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ED00ED2BACE8E100A8D3F3 /* ImageCameraResultView.swift */; };
+		C7ED00F22BACEBF400A8D3F3 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7ED00F12BACEBF400A8D3F3 /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C7ED00E92BA9EA3300A8D3F3 /* RestartScannerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartScannerButtonView.swift; sourceTree = "<group>"; };
 		C7ED00EB2BACE6E100A8D3F3 /* CloseScannerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseScannerButtonView.swift; sourceTree = "<group>"; };
 		C7ED00ED2BACE8E100A8D3F3 /* ImageCameraResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCameraResultView.swift; sourceTree = "<group>"; };
+		C7ED00F12BACEBF400A8D3F3 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				C780F25A2BA75B4A004EF062 /* Info.plist */,
+				C7ED00F02BACEBDE00A8D3F3 /* Utils */,
 				C7ED00EF2BACE99500A8D3F3 /* Helper */,
 				C780F2572BA75995004EF062 /* Model */,
 				C7521FB02BA835EA00FBB5B8 /* ViewModel */,
@@ -128,6 +131,14 @@
 				C780F25B2BA75F14004EF062 /* QRScannerDelegate.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		C7ED00F02BACEBDE00A8D3F3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C7ED00F12BACEBF400A8D3F3 /* AppConstants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 				C780F2592BA7599E004EF062 /* CameraPermission.swift in Sources */,
 				C780F2452BA742B9004EF062 /* QRCodeScannerApp.swift in Sources */,
 				C780F25C2BA75F14004EF062 /* QRScannerDelegate.swift in Sources */,
+				C7ED00F22BACEBF400A8D3F3 /* AppConstants.swift in Sources */,
 				C7ED00EE2BACE8E100A8D3F3 /* ImageCameraResultView.swift in Sources */,
 				C7ED00EA2BA9EA3300A8D3F3 /* RestartScannerButtonView.swift in Sources */,
 				C7ED00EC2BACE6E100A8D3F3 /* CloseScannerButtonView.swift in Sources */,

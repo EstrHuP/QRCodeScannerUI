@@ -18,19 +18,21 @@ struct ImageCameraResultView: View {
                 CameraView(frameSize: CGSize(width: size.width,
                                              height: size.width),
                            session: $viewModel.session)
-                .scaleEffect(0.97)
+                .scaleEffect(AppConstants.Number.zeroNinetySeven)
                 
                 ForEach(0...4, id: \.self) { index in
-                    let rotation = Double(index) * 90
+                    let rotation = Double(index) * AppConstants.Number.ninety
                     
-                    RoundedRectangle(cornerRadius: 2, style: .circular)
+                    RoundedRectangle(cornerRadius: AppConstants.Number.two,
+                                     style: .circular)
                     /// Trimming to get Scanner like Edges
-                        .trim(from: 0.61, to: 0.64)
-                        .stroke(.blue,
-                                style: StrokeStyle(lineWidth: 5,
-                                                   lineCap: .round,
-                                                   lineJoin: .round))
-                        .rotationEffect(.init(degrees: rotation))
+                    .trim(from: AppConstants.Number.zeroSixtyOne,
+                          to: AppConstants.Number.zeroSixtyFour)
+                    .stroke(.blue,
+                            style: StrokeStyle(lineWidth: AppConstants.Number.five,
+                                               lineCap: .round,
+                                               lineJoin: .round))
+                    .rotationEffect(.init(degrees: rotation))
                 }
             }
             /// Sqaure shape
@@ -41,16 +43,16 @@ struct ImageCameraResultView: View {
             .overlay(alignment: .top) {
                 Rectangle()
                     .fill(.red)
-                    .frame(height: 2.5)
-                    .shadow(color: .black.opacity(0.8),
-                            radius: 8,
+                    .frame(height: AppConstants.Number.twoFive)
+                    .shadow(color: .black.opacity(AppConstants.Number.zeroEight),
+                            radius: AppConstants.Number.eight,
                             x: .zero,
-                            y: viewModel.isScanning ? 15 : -15)
+                            y: viewModel.isScanning ? AppConstants.Number.fifteen : -AppConstants.Number.fifteen)
                     .offset(y: viewModel.isScanning ? size.width : .zero)
             }
             .frame(maxWidth: .infinity,
                    maxHeight: .infinity)
         }
-        .padding(.horizontal, 45)
+        .padding(.horizontal, AppConstants.Number.fourtyFive)
     }
 }

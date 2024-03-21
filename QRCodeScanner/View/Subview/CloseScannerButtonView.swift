@@ -29,8 +29,8 @@ struct CloseScannerButtonView: View {
         
         Text(explainText1)
             .font(.title3)
-            .foregroundColor(.gray.opacity(0.8))
-            .padding(.top, 20)
+            .foregroundColor(.gray.opacity(AppConstants.Number.zeroEight))
+            .padding(.top, AppConstants.Number.twenty)
         
         Text(explainText2)
             .font(.callout)
