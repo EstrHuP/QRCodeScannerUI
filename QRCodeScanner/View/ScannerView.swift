@@ -48,7 +48,7 @@ struct ScannerView: View {
             ImageCameraResultView(viewModel: viewModel)
             
             // MARK: - Scanner result
-            Text(viewModel.scannedCode)
+            ResultScannerView(viewModel: viewModel)
             
             Spacer(minLength: AppConstants.Number.fifteen)
             
