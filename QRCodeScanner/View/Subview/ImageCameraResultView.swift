@@ -15,10 +15,12 @@ struct ImageCameraResultView: View {
             let size = $0.size
             
             ZStack {
-                CameraView(frameSize: CGSize(width: size.width,
-                                             height: size.width),
-                           session: $viewModel.session)
-                .scaleEffect(AppConstants.Number.zeroNinetySeven)
+                if viewModel.scannedCode.isEmpty {
+                    CameraView(frameSize: CGSize(width: size.width,
+                                                 height: size.width),
+                               session: $viewModel.session)
+                    .scaleEffect(AppConstants.Number.zeroNinetySeven)
+                }
                 
                 ForEach(0...4, id: \.self) { index in
                     let rotation = Double(index) * AppConstants.Number.ninety

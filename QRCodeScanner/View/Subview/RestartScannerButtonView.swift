@@ -15,7 +15,7 @@ struct RestartScannerButtonView: View {
     
     var body: some View {
         Button {
-            if !viewModel.session.isRunning, viewModel.cameraPermission == .approved {
+            if !viewModel.scannedCode.isEmpty, viewModel.cameraPermission == .approved {
                 viewModel.reactivateCamera()
                 viewModel.startScannerAnimation()
             }

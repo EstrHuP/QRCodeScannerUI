@@ -27,10 +27,10 @@ class ScannerViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        qrDelegate.objectWillChange
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] in
-                self?.handleQRCodeReaded()
+        qrDelegate.$codeValue
+            .sink { [weak self] codeValue in
+                self?.handleQRCodeReaded(codeUpdated: codeValue)
+                print(codeValue ?? "")
             }.store(in: &cancellables)
     }
     
@@ -53,7 +53,6 @@ class ScannerViewModel: ObservableObject {
                 self.session.stopRunning()
             }
             isScanning = false
-            scannedCode = qrDelegate.codeValue ?? ""
         }
     }
     
@@ -126,8 +125,10 @@ class ScannerViewModel: ObservableObject {
     
     // MARK: - Code Readed
     /// Reset values if the code is readed
-    func handleQRCodeReaded() {
-        self.stopScannerAnimation()
+    func handleQRCodeReaded(codeUpdated: String?) {
+        stopScannerAnimation()
+        guard let codeReaded = codeUpdated else { return }
+        scannedCode = codeReaded
     }
     
     // MARK: - Presenting error
