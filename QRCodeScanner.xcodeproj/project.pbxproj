@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C7521FB22BA8360200FBB5B8 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7521FB12BA8360200FBB5B8 /* ScannerViewModel.swift */; };
 		C76A7C242BAD699600EA0B1C /* ResultScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A7C232BAD699600EA0B1C /* ResultScannerView.swift */; };
+		C76A7C262BB31DD500EA0B1C /* CornerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A7C252BB31DD500EA0B1C /* CornerCamera.swift */; };
 		C780F2452BA742B9004EF062 /* QRCodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780F2442BA742B9004EF062 /* QRCodeScannerApp.swift */; };
 		C780F2492BA742BC004EF062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C780F2482BA742BC004EF062 /* Assets.xcassets */; };
 		C780F24C2BA742BC004EF062 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C780F24B2BA742BC004EF062 /* Preview Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		C7521FB12BA8360200FBB5B8 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		C76A7C232BAD699600EA0B1C /* ResultScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScannerView.swift; sourceTree = "<group>"; };
+		C76A7C252BB31DD500EA0B1C /* CornerCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerCamera.swift; sourceTree = "<group>"; };
 		C780F2412BA742B9004EF062 /* QRCodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRCodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C780F2442BA742B9004EF062 /* QRCodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerApp.swift; sourceTree = "<group>"; };
 		C780F2482BA742BC004EF062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				C7ED00E92BA9EA3300A8D3F3 /* RestartScannerButtonView.swift */,
 				C7ED00EB2BACE6E100A8D3F3 /* CloseScannerButtonView.swift */,
 				C7ED00ED2BACE8E100A8D3F3 /* ImageCameraResultView.swift */,
+				C76A7C252BB31DD500EA0B1C /* CornerCamera.swift */,
 				C76A7C232BAD699600EA0B1C /* ResultScannerView.swift */,
 			);
 			path = Subview;
@@ -221,6 +224,7 @@
 				C780F25C2BA75F14004EF062 /* QRScannerDelegate.swift in Sources */,
 				C7ED00F22BACEBF400A8D3F3 /* AppConstants.swift in Sources */,
 				C7ED00EE2BACE8E100A8D3F3 /* ImageCameraResultView.swift in Sources */,
+				C76A7C262BB31DD500EA0B1C /* CornerCamera.swift in Sources */,
 				C7ED00EA2BA9EA3300A8D3F3 /* RestartScannerButtonView.swift in Sources */,
 				C7ED00EC2BACE6E100A8D3F3 /* CloseScannerButtonView.swift in Sources */,
 				C780F2562BA75640004EF062 /* CameraView.swift in Sources */,

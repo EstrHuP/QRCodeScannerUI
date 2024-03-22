@@ -140,7 +140,7 @@ class ScannerViewModel: ObservableObject {
     private func handleAuthorizedPermission() {
         cameraPermission = .approved
         DispatchQueue.main.async {
-            if self.session.inputs.isEmpty {
+            if self.scannedCode.isEmpty {
                 self.setupCamera(deviceTypes: self.deviceTypes,
                                  metadataTypes: self.metadataTypes)
             } else {
