@@ -11,7 +11,12 @@ import SwiftUI
 struct QRCodeScannerApp: App {
     var body: some Scene {
         WindowGroup {
-            ScannerView()
+            ScannerView(viewModel: ScannerViewModel(),
+                        closeImg: "xmark",
+                        explainText1: "Place the QR code inside the area",
+                        explainText2: "Scanning will start automatically",
+                        resetScannerImg: "qrcode.viewfinder",
+                        goToSettingsText: "Go to settings")
         }
     }
 }
